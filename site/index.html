@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fio de Sonho · Crochê Artesanal</title>
+<meta name="description" content="Fio de Sonho — peças de crochê feitas à mão com carinho. Amigurumis, chocalhos, lembrancinhas e bolsas. Cada fio é uma história, cada sonho é uma vida.">
+<meta name="theme-color" content="#8c6e96">
+
+<!-- Open Graph (preview ao compartilhar no WhatsApp/Insta) -->
+<meta property="og:title" content="Fio de Sonho · Crochê Artesanal">
+<meta property="og:description" content="Cada fio é uma história, cada sonho é uma vida. Peças de crochê feitas à mão.">
+<meta property="og:image" content="assets/img/logo-divulgacao.png">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --lav-1:#c7c8f1;
+    --lav-2:#d4c6ee;
+    --lav-3:#e2cfec;
+    --rose:#e8c8d8;
+    --plum:#5a3a66;
+    --plum-soft:#8c6e96;
+    --ink:#4a3258;
+    --cream:#fdfbff;
+    --shadow:rgba(90,58,102,.18);
+    --zap:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.18rem;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-weight:500;line-height:1.15}
+  .script{font-family:'Parisienne',cursive;font-weight:400}
+  .eyebrow{
+    font-family:'Montserrat',sans-serif;
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--plum-soft);font-weight:500;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1rem 2.2rem;
+    background:rgba(253,251,255,.72);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(140,110,150,.14);
+    transition:padding .3s ease;
+  }
+  nav .brand{font-family:'Parisienne',cursive;font-size:1.7rem;color:var(--plum)}
+  nav ul{display:flex;gap:2rem;list-style:none;font-family:'Montserrat',sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  nav ul a{position:relative;padding:.2rem 0;color:var(--ink);opacity:.8;transition:opacity .25s}
+  nav ul a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--plum);transition:width .3s}
+  nav ul a:hover{opacity:1}
+  nav ul a:hover::after{width:100%}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--plum)}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    min-height:100vh;
+    display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:2rem;
+    padding:7rem 2.2rem 3rem;
+    position:relative;
+    background:
+      radial-gradient(120% 90% at 80% 10%, var(--lav-1) 0%, transparent 55%),
+      radial-gradient(110% 100% at 10% 90%, var(--rose) 0%, transparent 50%),
+      linear-gradient(160deg, var(--lav-2) 0%, var(--lav-3) 55%, #f3e9f4 100%);
+  }
+  .hero-text{max-width:560px;animation:rise 1s ease both}
+  .hero-text .script{font-size:clamp(3.4rem,7vw,6rem);color:var(--plum);line-height:.95;margin:.4rem 0 1rem}
+  .hero-text .slogan{
+    font-style:italic;font-size:1.45rem;color:var(--plum-soft);
+    border-left:2px solid var(--plum-soft);padding-left:1rem;margin:1.5rem 0 2.2rem;max-width:430px
+  }
+  .hero-img{position:relative;display:flex;justify-content:center;animation:rise 1.2s ease both .15s}
+  .hero-img .glow{
+    position:absolute;inset:8%;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,.55), transparent 65%);
+    filter:blur(20px);z-index:0
+  }
+  .hero-img img{position:relative;z-index:1;max-height:78vh;filter:drop-shadow(0 18px 40px var(--shadow))}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-family:'Montserrat',sans-serif;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+    padding:.95rem 1.9rem;border-radius:40px;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s
+  }
+  .btn-primary{background:var(--plum);color:#fff;box-shadow:0 8px 24px var(--shadow)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px var(--shadow)}
+  .btn-zap{background:var(--zap);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.32)}
+  .btn-zap:hover{transform:translateY(-3px)}
+  .btn-ghost{background:transparent;color:var(--plum);border:1.5px solid var(--plum-soft)}
+  .btn-ghost:hover{background:var(--plum);color:#fff}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:6rem 2.2rem;position:relative}
+  .wrap{max-width:1150px;margin:0 auto}
+  .sec-head{text-align:center;margin-bottom:3.5rem}
+  .sec-head h2{font-size:clamp(2.2rem,4vw,3.2rem);color:var(--plum);margin-top:.5rem}
+  .sec-head .script{font-size:2.6rem;color:var(--plum-soft)}
+
+  /* ---------- SOBRE ---------- */
+  .sobre{background:linear-gradient(180deg,#f3e9f4,#fdfbff)}
+  .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .sobre-text p{margin-bottom:1.2rem}
+  .sobre-text .lead{font-size:1.5rem;font-style:italic;color:var(--plum);line-height:1.4}
+  .sobre-card{
+    background:linear-gradient(155deg,var(--lav-2),var(--rose));
+    border-radius:24px;padding:3rem;color:var(--plum);
+    box-shadow:0 20px 50px var(--shadow);position:relative;overflow:hidden
+  }
+  .sobre-card::before{content:"❀";position:absolute;font-size:14rem;opacity:.12;right:-2rem;bottom:-4rem}
+  .sobre-card h3{font-family:'Parisienne',cursive;font-size:2.4rem;margin-bottom:1rem}
+  .values{display:flex;flex-direction:column;gap:1.1rem;margin-top:1.5rem;font-family:'Montserrat',sans-serif;font-size:.9rem;letter-spacing:.04em}
+  .values div{display:flex;align-items:center;gap:.8rem}
+  .values span{font-size:1.3rem}
+
+  /* ---------- PRODUTOS ---------- */
+  .produtos{background:linear-gradient(180deg,#fdfbff,#f6eef6)}
+  .grid-prod{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem}
+  .card{
+    background:#fff;border-radius:22px;overflow:hidden;
+    box-shadow:0 10px 30px rgba(90,58,102,.1);
+    transition:transform .35s,box-shadow .35s;display:flex;flex-direction:column
+  }
+  .card:hover{transform:translateY(-8px);box-shadow:0 22px 48px var(--shadow)}
+  .card-img{aspect-ratio:1;overflow:hidden;background:var(--lav-3)}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .card:hover .card-img img{transform:scale(1.06)}
+  .card-body{padding:1.6rem;display:flex;flex-direction:column;flex:1}
+  .card-body .tag{align-self:flex-start;font-family:'Montserrat',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--plum-soft);background:var(--lav-3);padding:.3rem .8rem;border-radius:30px;margin-bottom:.8rem}
+  .card-body h3{font-size:1.7rem;color:var(--plum);margin-bottom:.4rem}
+  .card-body p{font-size:1.05rem;color:#6b5a73;flex:1;margin-bottom:1.2rem}
+  .card-body .btn{align-self:stretch;justify-content:center}
+  .nota-prod{text-align:center;margin-top:2.5rem;font-style:italic;color:var(--plum-soft);font-size:1.2rem}
+
+  /* ---------- ENCOMENDA ---------- */
+  .encomenda{
+    background:
+      radial-gradient(100% 100% at 0 0,var(--lav-1),transparent 50%),
+      linear-gradient(160deg,var(--lav-2),var(--rose));
+    color:var(--plum)
+  }
+  .passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:1rem}
+  .passo{background:rgba(255,255,255,.5);backdrop-filter:blur(6px);border-radius:18px;padding:2rem 1.6rem;text-align:center;border:1px solid rgba(255,255,255,.6)}
+  .passo .num{font-family:'Parisienne',cursive;font-size:3rem;color:var(--plum);line-height:1}
+  .passo h3{font-family:'Montserrat',sans-serif;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;margin:.6rem 0 .5rem}
+  .passo p{font-size:1.02rem;color:#5e4668}
+  .enc-cta{text-align:center;margin-top:3rem}
+
+  /* ---------- CONTATO / FOOTER ---------- */
+  footer{background:var(--plum);color:#f3e9f4;padding:4.5rem 2.2rem 2.5rem;text-align:center}
+  footer .script{font-size:3.4rem;margin-bottom:.5rem;color:#fff}
+  footer .slogan{font-style:italic;color:#d9c4e0;margin-bottom:2.2rem}
+  .social{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem}
+  .social a{display:inline-flex;align-items:center;gap:.6rem;font-family:'Montserrat',sans-serif;font-size:.85rem;letter-spacing:.05em;padding:.8rem 1.5rem;border:1px solid rgba(255,255,255,.3);border-radius:40px;transition:background .25s,color .25s}
+  .social a:hover{background:#fff;color:var(--plum)}
+  .copy{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.06em;color:rgba(243,233,244,.5);border-top:1px solid rgba(255,255,255,.12);padding-top:1.8rem}
+
+  /* ---------- FAB WhatsApp ---------- */
+  .fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:200;width:60px;height:60px;border-radius:50%;background:var(--zap);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .25s;animation:pulse 2.4s infinite}
+  .fab:hover{transform:scale(1.1)}
+  .fab svg{width:32px;height:32px;fill:#fff}
+
+  /* ---------- ANIM ---------- */
+  @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes pulse{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.4)}50%{box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 12px rgba(37,211,102,.08)}}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* ---------- RESPONSIVO ---------- */
+  @media(max-width:880px){
+    header.hero{grid-template-columns:1fr;text-align:center;padding-top:6rem}
+    .hero-text{margin:0 auto}
+    .hero-text .slogan{border:none;padding:0;margin:1.2rem auto 2rem}
+    .hero-cta{justify-content:center}
+    .hero-img{order:-1}
+    .hero-img img{max-height:46vh}
+    .sobre-grid{grid-template-columns:1fr;gap:2.5rem}
+    nav ul{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:rgba(253,251,255,.97);backdrop-filter:blur(14px);padding:1.5rem 2.2rem;gap:1.4rem;transform:translateY(-130%);transition:transform .35s;border-bottom:1px solid rgba(140,110,150,.14)}
+    nav ul.open{transform:translateY(0)}
+    .nav-toggle{display:block}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="brand">Fio de Sonho</a>
+  <button class="nav-toggle" aria-label="menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  <ul id="menu">
+    <li><a href="#sobre" onclick="closeMenu()">Sobre</a></li>
+    <li><a href="#produtos" onclick="closeMenu()">Peças</a></li>
+    <li><a href="#encomenda" onclick="closeMenu()">Encomendar</a></li>
+    <li><a href="#contato" onclick="closeMenu()">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="hero-text">
+    <span class="eyebrow">Crochê artesanal · feito à mão</span>
+    <div class="script">Fio de Sonho</div>
+    <p class="slogan">Cada fio é uma história,<br>cada sonho é uma vida.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#produtos">Ver as peças</a>
+      <a class="btn btn-zap" id="hero-zap" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.523 5.26l-.999 3.648 3.736-.981a9.83 9.83 0 002.23.274z"/></svg>
+        Encomendar
+      </a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="glow"></div>
+    <img src="assets/img/logo.png" alt="Fada Fio de Sonho tecendo um fio">
+  </div>
+</header>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-text reveal">
+        <span class="eyebrow">A nossa essência</span>
+        <p class="lead">Feito com as mãos, pensado com o coração.</p>
+        <p>O Fio de Sonho nasceu do amor pelo crochê e pela ideia de que cada peça carrega uma história. Aqui, o tempo é dedicado a cada ponto — com linhas escolhidas a dedo, cores que acolhem e o cuidado de quem cria pensando em quem vai receber.</p>
+        <p>São amigurumis, lembrancinhas, chocalhos e acessórios feitos sob encomenda, no seu jeito, na sua cor, do seu tamanho. Porque artesanal é isso: único como o sonho de cada pessoa.</p>
+      </div>
+      <div class="sobre-card reveal">
+        <h3>Por que artesanal?</h3>
+        <p>Cada peça é confeccionada individualmente, à mão, com atenção total aos detalhes.</p>
+        <div class="values">
+          <div><span>🧶</span> Materiais escolhidos com carinho</div>
+          <div><span>✨</span> Personalização de cores e tamanhos</div>
+          <div><span>💝</span> Embalagem pensada para presente</div>
+          <div><span>🤍</span> Feito com tempo e dedicação</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section class="produtos" id="produtos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="script">nossas</span>
+      <h2>Peças & Inspirações</h2>
+    </div>
+    <div class="grid-prod">
+
+      <article class="card reveal">
+        <div class="card-img"><img src="assets/img/produto-coelho.png" alt="Chaveiro coelhinho de crochê para lembrancinha"></div>
+        <div class="card-body">
+          <span class="tag">Lembrancinhas</span>
+          <h3>Chaveiros & Lembranças</h3>
+          <p>Coelhinhos e bichinhos para chá de bebê, maternidade, aniversários e datas especiais. Personalizáveis com nome e cartãozinho.</p>
+          <a class="btn btn-zap zap-link" data-msg="Olá! Vi o site e queria saber sobre os chaveiros/lembrancinhas de crochê 🐰">
+            Quero encomendar
+          </a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-img"><img src="assets/img/produto-chocalho.png" alt="Chocalhos de crochê azul e rosa para bebê"></div>
+        <div class="card-body">
+          <span class="tag">Para bebês</span>
+          <h3>Chocalhos & Mordedores</h3>
+          <p>Peças delicadas e seguras para os pequenos, em algodão macio. Disponíveis em várias cores para meninos e meninas.</p>
+          <a class="btn btn-zap zap-link" data-msg="Olá! Tenho interesse nos chocalhos de crochê para bebê 🍼">
+            Quero encomendar
+          </a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-img"><img src="assets/img/produto-dragao.png" alt="Amigurumi do dragão Banguela em crochê"></div>
+        <div class="card-body">
+          <span class="tag">Amigurumi</span>
+          <h3>Bonecos & Personagens</h3>
+          <p>Amigurumis de personagens e bichinhos, feitos ponto a ponto. Ótimos para colecionar, presentear ou decorar.</p>
+          <a class="btn btn-zap zap-link" data-msg="Olá! Queria saber sobre os amigurumis (bonecos de crochê) 🐉">
+            Quero encomendar
+          </a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-img"><img src="assets/img/produto-bolsa.png" alt="Bolsa de crochê personalizada"></div>
+        <div class="card-body">
+          <span class="tag">Acessórios</span>
+          <h3>Bolsas & Acessórios</h3>
+          <p>Bolsas, necessaires e acessórios em crochê, com aplicações e temas personalizados. Estilo e exclusividade no dia a dia.</p>
+          <a class="btn btn-zap zap-link" data-msg="Olá! Tenho interesse nas bolsas/acessórios de crochê 👜">
+            Quero encomendar
+          </a>
+        </div>
+      </article>
+
+    </div>
+    <p class="nota-prod reveal">Estas são algumas inspirações — quase tudo pode ser feito sob encomenda. Tem uma ideia? A gente cria pra você. 💜</p>
+  </div>
+</section>
+
+<!-- ENCOMENDA -->
+<section class="encomenda" id="encomenda">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="script">como</span>
+      <h2>Encomendar</h2>
+    </div>
+    <div class="passos">
+      <div class="passo reveal"><div class="num">1</div><h3>Escolha</h3><p>Veja as peças ou conte a sua ideia: cor, tamanho, tema e quantidade.</p></div>
+      <div class="passo reveal"><div class="num">2</div><h3>Converse</h3><p>Chame no WhatsApp. Combinamos os detalhes, o valor e o prazo de produção.</p></div>
+      <div class="passo reveal"><div class="num">3</div><h3>Produção</h3><p>Sua peça é feita à mão, com todo o cuidado, especialmente para você.</p></div>
+      <div class="passo reveal"><div class="num">4</div><h3>Entrega</h3><p>Combinamos envio pelos Correios ou retirada/entrega na região.</p></div>
+    </div>
+    <div class="enc-cta reveal">
+      <a class="btn btn-zap zap-link" data-msg="Olá! Gostaria de fazer uma encomenda no Fio de Sonho 💜">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.523 5.26l-.999 3.648 3.736-.981a9.83 9.83 0 002.23.274z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTATO -->
+<footer id="contato">
+  <div class="script">Fio de Sonho</div>
+  <p class="slogan">Cada fio é uma história, cada sonho é uma vida.</p>
+  <div class="social">
+    <a href="https://instagram.com/fio_de_sonho" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9c-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.46 2.21 8.85 2.2 12 2.2zm0 1.8c-3.14 0-3.51.01-4.75.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.43 9.07 3.42 9.44 3.42 12s.01 2.93.07 4.17c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.61.07-4.17s-.01-2.93-.07-4.17c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 00-.68-1.06 2.85 2.85 0 00-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.51 4.01 15.14 4 12 4zm0 3.06A4.94 4.94 0 1012 17a4.94 4.94 0 000-9.88zm0 8.14A3.2 3.2 0 1112 8.8a3.2 3.2 0 010 6.4zm6.28-8.34a1.15 1.15 0 11-2.3 0 1.15 1.15 0 012.3 0z"/></svg>
+      @fio_de_sonho
+    </a>
+    <a class="zap-link" data-msg="Olá! Vim pelo site do Fio de Sonho 💜">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+      (34) 99918-2686
+    </a>
+  </div>
+  <p class="copy">© <span id="ano"></span> Fio de Sonho · Crochê artesanal feito à mão</p>
+</footer>
+
+<!-- FAB -->
+<a class="fab zap-link" data-msg="Olá! Vim pelo site do Fio de Sonho 💜" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.523 5.26l-.999 3.648 3.736-.981a9.83 9.83 0 002.23.274z"/></svg>
+</a>
+
+<script>
+  // ===== CONFIG: número do WhatsApp (formato internacional, só dígitos) =====
+  const WHATSAPP = "5534999182686";
+
+  // monta links de WhatsApp com mensagem pré-preenchida
+  document.querySelectorAll('.zap-link').forEach(el=>{
+    const msg = encodeURIComponent(el.dataset.msg || "Olá! Vim pelo site do Fio de Sonho 💜");
+    el.href = `https://wa.me/${WHATSAPP}?text=${msg}`;
+    el.target = "_blank"; el.rel = "noopener";
+  });
+  document.getElementById('hero-zap').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Gostaria de fazer uma encomenda no Fio de Sonho 💜")}`;
+
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  function closeMenu(){document.getElementById('menu').classList.remove('open');}
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{ el.style.transitionDelay=(i%4*.08)+'s'; io.observe(el); });
+</script>
+</body>
+</html>
